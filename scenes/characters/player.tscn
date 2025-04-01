@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://fi75pm23saar"]
+[gd_scene load_steps=8 format=3 uid="uid://fi75pm23saar"]
 
 [ext_resource type="Texture2D" uid="uid://bxwplaq1wsde0" path="res://assets/art/characters/soccer-player.png" id="1_rp718"]
+[ext_resource type="Script" uid="uid://c2t8n5wr7lwlj" path="res://scenes/characters/player.gd" id="1_yewv4"]
 
 [sub_resource type="Animation" id="Animation_yewv4"]
 resource_name = "idle"
@@ -35,10 +36,29 @@ tracks/0/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_rp718"]
+resource_name = "run"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dyp2m"]
 _data = {
 &"RESET": SubResource("Animation_76oj4"),
-&"idle": SubResource("Animation_yewv4")
+&"idle": SubResource("Animation_yewv4"),
+&"run": SubResource("Animation_rp718")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rp718"]
@@ -46,8 +66,11 @@ radius = 4.0
 height = 18.0
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_yewv4")
+speed = 80.0
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 texture = ExtResource("1_rp718")
 centered = false
 offset = Vector2(-16, -32)
@@ -55,6 +78,7 @@ hframes = 6
 vframes = 13
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_dyp2m")
 }
