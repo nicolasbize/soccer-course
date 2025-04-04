@@ -15,7 +15,7 @@ func handle_human_movement() -> void:
 	player.velocity = direction * player.speed
 
 	if player.has_ball() and KeyUtils.is_action_just_pressed(player.control_scheme, KeyUtils.Action.SHOOT):
-		state_transition_requested.emit(Player.State.PREPPING_SHOT)
+		transition_state(Player.State.PREPPING_SHOT)
 	
 	#if player.velocity != Vector2.ZERO and KeyUtils.is_action_just_pressed(player.control_scheme, KeyUtils.Action.SHOOT):
 		#state_transition_requested.emit(Player.State.TACKLING)

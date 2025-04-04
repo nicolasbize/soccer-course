@@ -73,6 +73,7 @@ sync_to_physics = false
 script = ExtResource("1_stoaj")
 
 [node name="BallSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 texture = ExtResource("1_oqv3d")
 centered = false
 offset = Vector2(-5, -10)
