@@ -10,6 +10,7 @@ enum State {CARRIED, FREEFORM, SHOT}
 var carrier : Player = null
 var current_state : BallState = null
 var height := 0.0
+var height_velocity := 0.0
 var state_factory := BallStateFactory.new()
 var velocity := Vector2.ZERO
 
