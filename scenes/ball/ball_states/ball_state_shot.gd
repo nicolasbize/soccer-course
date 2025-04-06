@@ -2,7 +2,7 @@ class_name BallStateShot
 extends BallState
 
 const DURATION_SHOT := 1000
-const SHOT_HEIGHT := 30
+const SHOT_HEIGHT := 5
 const SHOT_SPRITE_SCALE := 0.8
 
 var time_since_shot := Time.get_ticks_msec()
@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	if Time.get_ticks_msec() - time_since_shot > DURATION_SHOT:
 		state_transition_requested.emit(Ball.State.FREEFORM)
 	else:
-		ball.move_and_collide(ball.velocity * delta)
+		move_and_bounce(delta)
 
 func _exit_tree() -> void:
 	sprite.scale.y = 1.0
