@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bid4q8hesw3wj"]
 
 [ext_resource type="Texture2D" uid="uid://b7c82hlauxi3s" path="res://assets/art/backgrounds/pitch-background.png" id="1_4wyf3"]
-[ext_resource type="Script" uid="uid://cqbhhhxdplcbc" path="res://scenes/camera.gd" id="1_qfnet"]
+[ext_resource type="Script" uid="uid://br1v7ui0uvo1j" path="res://scenes/camera.gd" id="1_qfnet"]
 [ext_resource type="Texture2D" uid="uid://cjo760h5txa0w" path="res://assets/art/backgrounds/pitch-pattern.png" id="2_k0juu"]
 [ext_resource type="Texture2D" uid="uid://cv4n0o2f54jf6" path="res://assets/art/backgrounds/pitch-lines.png" id="3_71j4m"]
 [ext_resource type="PackedScene" uid="uid://fi75pm23saar" path="res://scenes/characters/player.tscn" id="4_k0juu"]
@@ -17,7 +17,6 @@ limit_bottom = 360
 position_smoothing_enabled = true
 script = ExtResource("1_qfnet")
 ball = NodePath("../ActorsContainer/Ball")
-distance_target = 100.0
 
 [node name="Backgrounds" type="Node2D" parent="."]
 
@@ -55,3 +54,5 @@ control_scheme = 2
 
 [node name="Ball" parent="ActorsContainer" instance=ExtResource("5_71j4m")]
 position = Vector2(231, 133)
+friction_air = 35.0
+friction_ground = 250.0
