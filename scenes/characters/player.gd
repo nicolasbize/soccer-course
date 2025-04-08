@@ -47,6 +47,12 @@ func switch_state(state: State, state_data: PlayerStateData = PlayerStateData.ne
 	current_state.name = "PlayerStateMachine: " + str(state)
 	call_deferred("add_child", current_state)
 
+func set_movement_animation() -> void:
+	if velocity.length() > 0:
+		animation_player.play("run")
+	else:
+		animation_player.play("idle")
+
 func process_gravity(delta: float) -> void:
 	if height > 0:
 		height_velocity -= GRAVITY * delta
@@ -54,12 +60,6 @@ func process_gravity(delta: float) -> void:
 		if height <= 0:
 			height = 0
 	player_sprite.position = Vector2.UP * height
-
-func set_movement_animation() -> void:
-	if velocity.length() > 0:
-		animation_player.play("run")
-	else:
-		animation_player.play("idle")
 
 func set_heading() -> void:
 	if velocity.x > 0:
