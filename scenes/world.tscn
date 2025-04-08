@@ -92,7 +92,7 @@ collision_mask = 0
 polygon = PackedVector2Array(14, -1, 30, -1, 14, 116, 0, 116)
 
 [node name="RightWall" type="Sprite2D" parent="ActorsContainer/PitchObjects"]
-position = Vector2(826, 221)
+position = Vector2(827, 222)
 scale = Vector2(-1, 1)
 texture = ExtResource("8_w7kh3")
 centered = false
@@ -119,6 +119,4 @@ ball = NodePath("../Ball")
 control_scheme = 2
 
 [node name="Ball" parent="ActorsContainer" instance=ExtResource("5_71j4m")]
-position = Vector2(231, 133)
-friction_air = 35.0
-friction_ground = 250.0
+position = Vector2(241, 130)

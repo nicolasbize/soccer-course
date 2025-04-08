@@ -1,8 +1,6 @@
 class_name BallStateFreeform
 extends BallState
 
-
-
 func _enter_tree() -> void:
 	player_detection_area.body_entered.connect(on_player_enter.bind())
 
@@ -16,3 +14,6 @@ func _process(delta: float) -> void:
 	ball.velocity = ball.velocity.move_toward(Vector2.ZERO, friction * delta)
 	process_gravity(delta, ball.BOUNCINESS)
 	move_and_bounce(delta)
+
+func can_air_interact() -> bool:
+	return true
