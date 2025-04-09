@@ -14,12 +14,9 @@ func _enter_tree() -> void:
 	ball_detection_area.body_entered.connect(on_ball_entered.bind())
 	
 func on_ball_entered(contact_ball: Ball) -> void:
-	if can_air_connect():
+	if contact_ball.can_air_connect(BALL_HEIGHT_MIN, BALL_HEIGHT_MAX):
 		contact_ball.shoot(player.velocity.normalized() * player.power * BONUS_POWER)
 
 func _process(_delta: float) -> void:
 	if player.height == 0:
 		transition_state(Player.State.RECOVERING)
-
-func can_air_connect() -> bool:
-	return ball.height >= BALL_HEIGHT_MIN and ball.height <= BALL_HEIGHT_MAX
