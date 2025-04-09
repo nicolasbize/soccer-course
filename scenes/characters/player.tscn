@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://fi75pm23saar"]
+[gd_scene load_steps=19 format=3 uid="uid://fi75pm23saar"]
 
 [ext_resource type="Texture2D" uid="uid://bxwplaq1wsde0" path="res://assets/art/characters/soccer-player.png" id="1_rp718"]
 [ext_resource type="Script" uid="uid://c2t8n5wr7lwlj" path="res://scenes/characters/player.gd" id="1_yewv4"]
@@ -220,10 +220,28 @@ tracks/0/keys = {
 "values": [24, 25]
 }
 
+[sub_resource type="Animation" id="Animation_2l4js"]
+resource_name = "chest_control"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [42]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dyp2m"]
 _data = {
 &"RESET": SubResource("Animation_76oj4"),
 &"bicycle_kick": SubResource("Animation_eojnx"),
+&"chest_control": SubResource("Animation_2l4js"),
 &"header": SubResource("Animation_7vyk4"),
 &"idle": SubResource("Animation_yewv4"),
 &"kick": SubResource("Animation_6eyoc"),
