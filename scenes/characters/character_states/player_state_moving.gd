@@ -36,4 +36,3 @@ func handle_human_movement() -> void:
 func is_facing_target_goal() -> bool:
 	var direction_to_target_goal := player.position.direction_to(target_goal.position)
 	return player.heading.dot(direction_to_target_goal) > 0
-	

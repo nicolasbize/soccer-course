@@ -20,6 +20,6 @@ func on_ball_entered(contact_ball: Ball) -> void:
 func _process(_delta: float) -> void:
 	if player.height == 0:
 		transition_state(Player.State.RECOVERING)
-	
+
 func can_air_connect() -> bool:
 	return ball.height >= BALL_HEIGHT_MIN and ball.height <= BALL_HEIGHT_MAX

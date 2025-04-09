@@ -6,8 +6,6 @@ const DISTANCE_HIGH_PASS := 130
 
 enum State {CARRIED, FREEFORM, SHOT}
 
-@export var air_connect_min_height : float
-@export var air_connect_max_height : float
 @export var friction_air : float
 @export var friction_ground : float
 

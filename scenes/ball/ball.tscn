@@ -71,8 +71,6 @@ radius = 4.0
 collision_layer = 4
 sync_to_physics = false
 script = ExtResource("1_stoaj")
-air_connect_min_height = 10.0
-air_connect_max_height = 30.0
 friction_air = 35.0
 friction_ground = 250.0
 
