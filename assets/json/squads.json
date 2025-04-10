@@ -1,0 +1,313 @@
+[{
+	"country": "FRANCE",
+	"players": [{
+		"name": "H. LLORIS",
+		"skin": 0,
+		"role": 0,
+		"speed": 80,
+		"power": 100,
+	}, {
+		"name": "J. KOUNDE",
+		"skin": 2,
+		"role": 1,
+		"speed": 85,
+		"power": 170,
+	}, {
+		"name": "I. KONATE",
+		"skin": 2,
+		"role": 1,
+		"speed": 82,
+		"power": 180,
+	}, {
+		"name": "A. GRIEZMANN",
+		"skin": 0,
+		"role": 2,
+		"speed": 85,
+		"power": 180,
+	}, {
+		"name": "K. MBAPPE",
+		"skin": 1,
+		"role": 3,
+		"speed": 95,
+		"power": 230,
+	}, {
+		"name": "O. GIROUD",
+		"skin": 0,
+		"role": 3,
+		"speed": 87,
+		"power": 190,
+	}]
+}, {
+	"country": "ARGENTINA",
+	"players": [{
+		"name": "E. MARTINEZ",
+		"skin": 0,
+		"role": 0,
+		"speed": 90,
+		"power": 100,
+	}, {
+		"name": "N. MOLINA",
+		"skin": 0,
+		"role": 1,
+		"speed": 85,
+		"power": 180,
+	}, {
+		"name": "N. OTAMENDI",
+		"skin": 0,
+		"role": 1,
+		"speed": 82,
+		"power": 175,
+	}, {
+		"name": "A. DI MARIA",
+		"skin": 0,
+		"role": 2,
+		"speed": 87,
+		"power": 190,
+	}, {
+		"name": "L. MESSI",
+		"skin": 0,
+		"role": 3,
+		"speed": 95,
+		"power": 205,
+	}, {
+		"name": "J. ALVAREZ",
+		"skin": 0,
+		"role": 3,
+		"speed": 80,
+		"power": 175,
+	}]
+}, {
+	"country": "BRAZIL",
+	"players": [{
+		"name": "A. BECKER",
+		"skin": 0,
+		"role": 0,
+		"speed": 80,
+		"power": 100,
+	}, {
+		"name": "T. SILVA",
+		"skin": 1,
+		"role": 1,
+		"speed": 88,
+		"power": 185,
+	}, {
+		"name": "MARQUINHOS",
+		"skin": 1,
+		"role": 1,
+		"speed": 85,
+		"power": 182,
+	}, {
+		"name": "CASEMIRO",
+		"skin": 1,
+		"role": 2,
+		"speed": 84,
+		"power": 186,
+	}, {
+		"name": "NEYMAR",
+		"skin": 1,
+		"role": 3,
+		"speed": 90,
+		"power": 195,
+	}, {
+		"name": "RICHARLISON",
+		"skin": 0,
+		"role": 3,
+		"speed": 85,
+		"power": 190,
+	}]
+}, {
+	"country": "ENGLAND",
+	"players": [{
+		"name": "J. PICKFORD",
+		"skin": 0,
+		"role": 0,
+		"speed": 80,
+		"power": 100,
+	}, {
+		"name": "H. MAGUIRE",
+		"skin": 0,
+		"role": 1,
+		"speed": 45,
+		"power": 160,
+	}, {
+		"name": "L. SHAW",
+		"skin": 0,
+		"role": 1,
+		"speed": 65,
+		"power": 170,
+	}, {
+		"name": "P. FODEN",
+		"skin": 0,
+		"role": 2,
+		"speed": 65,
+		"power": 145,
+	}, {
+		"name": "H. KANE",
+		"skin": 0,
+		"role": 3,
+		"speed": 80,
+		"power": 185,
+	}, {
+		"name": "R. STERLING",
+		"skin": 2,
+		"role": 3,
+		"speed": 85,
+		"power": 150,
+	}]
+}, {
+	"country": "GERMANY",
+	"players": [{
+		"name": "M. NEUER",
+		"skin": 0,
+		"role": 0,
+		"speed": 75,
+		"power": 100,
+	}, {
+		"name": "A. RUDIGER",
+		"skin": 2,
+		"role": 1,
+		"speed": 85,
+		"power": 185,
+	}, {
+		"name": "D. RAUM",
+		"skin": 0,
+		"role": 1,
+		"speed": 85,
+		"power": 180,
+	}, {
+		"name": "J. KIMMICH",
+		"skin": 0,
+		"role": 2,
+		"speed": 80,
+		"power": 185,
+	}, {
+		"name": "T. MULLER",
+		"skin": 0,
+		"role": 3,
+		"speed": 85,
+		"power": 185,
+	}, {
+		"name": "S. GNABRY",
+		"skin": 2,
+		"role": 3,
+		"speed": 85,
+		"power": 190,
+	}]
+}, {
+	"country": "ITALY",
+	"players": [{
+		"name": "G. DONNARUMMA",
+		"skin": 0,
+		"role": 0,
+		"speed": 75,
+		"power": 100,
+	}, {
+		"name": "F. DIMARCO",
+		"skin": 0,
+		"role": 1,
+		"speed": 80,
+		"power": 170,
+	}, {
+		"name": "F. ACERBI",
+		"skin": 0,
+		"role": 1,
+		"speed": 85,
+		"power": 155,
+	}, {
+		"name": "G. RASPADORI",
+		"skin": 0,
+		"role": 2,
+		"speed": 65,
+		"power": 165,
+	}, {
+		"name": "F. CHIESA",
+		"skin": 0,
+		"role": 3,
+		"speed": 75,
+		"power": 165,
+	}, {
+		"name": "S. GNABRY",
+		"skin": 2,
+		"role": 3,
+		"speed": 80,
+		"power": 170,
+	}]
+}, {
+	"country": "SPAIN",
+	"players": [{
+		"name": "U. SIMON",
+		"skin": 0,
+		"role": 0,
+		"speed": 80,
+		"power": 100,
+	}, {
+		"name": "J. ALBA",
+		"skin": 0,
+		"role": 1,
+		"speed": 80,
+		"power": 170,
+	}, {
+		"name": "A. BALDE",
+		"skin": 2,
+		"role": 2,
+		"speed": 85,
+		"power": 165,
+	}, {
+		"name": "GAVI",
+		"skin": 0,
+		"role": 1,
+		"speed": 80,
+		"power": 165,
+	}, {
+		"name": "A. MORATA",
+		"skin": 0,
+		"role": 3,
+		"speed": 88,
+		"power": 160,
+	}, {
+		"name": "F. TORRES",
+		"skin": 0,
+		"role": 3,
+		"speed": 88,
+		"power": 165,
+	}]
+}, {
+	"country": "USA",
+	"players": [{
+		"name": "S. STERLING",
+		"skin": 0,
+		"role": 0,
+		"speed": 70,
+		"power": 100,
+	}, {
+		"name": "A. ROBINSON",
+		"skin": 1,
+		"role": 1,
+		"speed": 55,
+		"power": 130,
+	}, {
+		"name": "W. ZIMMERMAN",
+		"skin": 0,
+		"role": 1,
+		"speed": 60,
+		"power": 125,
+	}, {
+		"name": "J. MCGLYNN",
+		"skin": 0,
+		"role": 2,
+		"speed": 65,
+		"power": 140,
+	}, {
+		"name": "W. MCKENNIE",
+		"skin": 0,
+		"role": 3,
+		"speed": 65,
+		"power": 125,
+	}, {
+		"name": "C. PULISIC",
+		"skin": 0,
+		"role": 3,
+		"speed": 75,
+		"power": 150,
+	}]
+}]
