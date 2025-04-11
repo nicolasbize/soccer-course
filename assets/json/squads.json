@@ -280,25 +280,25 @@
 		"speed": 70,
 		"power": 100,
 	}, {
-		"name": "A. ROBINSON",
+		"name": "M. MCKENZIE",
 		"skin": 1,
 		"role": 1,
 		"speed": 55,
 		"power": 130,
 	}, {
-		"name": "W. ZIMMERMAN",
+		"name": "J. SCALLY",
 		"skin": 0,
 		"role": 1,
 		"speed": 60,
 		"power": 125,
 	}, {
-		"name": "J. MCGLYNN",
+		"name": "D. LUNA",
 		"skin": 0,
 		"role": 2,
 		"speed": 65,
 		"power": 140,
 	}, {
-		"name": "W. MCKENNIE",
+		"name": "T. WEAH",
 		"skin": 0,
 		"role": 3,
 		"speed": 65,
@@ -306,6 +306,45 @@
 	}, {
 		"name": "C. PULISIC",
 		"skin": 0,
+		"role": 3,
+		"speed": 75,
+		"power": 150,
+	}]
+}, {
+	"country": "CANADA",
+	"players": [{
+		"name": "D.S. CLAIR",
+		"skin": 1,
+		"role": 0,
+		"speed": 75,
+		"power": 100,
+	}, {
+		"name": "A. JOHNSTON",
+		"skin": 0,
+		"role": 1,
+		"speed": 70,
+		"power": 140,
+	}, {
+		"name": "A. DAVIES",
+		"skin": 2,
+		"role": 1,
+		"speed": 65,
+		"power": 155,
+	}, {
+		"name": "A. AHMED",
+		"skin": 2,
+		"role": 2,
+		"speed": 65,
+		"power": 140,
+	}, {
+		"name": "T. BUCHANAN",
+		"skin": 1,
+		"role": 3,
+		"speed": 65,
+		"power": 125,
+	}, {
+		"name": "J. DAVID",
+		"skin": 2,
 		"role": 3,
 		"speed": 75,
 		"power": 150,
