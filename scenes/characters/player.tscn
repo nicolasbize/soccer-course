@@ -1,9 +1,20 @@
-[gd_scene load_steps=19 format=3 uid="uid://fi75pm23saar"]
+[gd_scene load_steps=23 format=3 uid="uid://fi75pm23saar"]
 
 [ext_resource type="Texture2D" uid="uid://bxwplaq1wsde0" path="res://assets/art/characters/soccer-player.png" id="1_rp718"]
 [ext_resource type="Script" uid="uid://c2t8n5wr7lwlj" path="res://scenes/characters/player.gd" id="1_yewv4"]
+[ext_resource type="Shader" uid="uid://wnc3mm3c827x" path="res://shaders/replace_color.gdshader" id="2_atpat"]
+[ext_resource type="Texture2D" uid="uid://crkdyoadsw2qq" path="res://assets/art/palettes/skin-colors-palette.png" id="3_6eyoc"]
 [ext_resource type="Texture2D" uid="uid://1jhyg4hu6jv3" path="res://assets/art/characters/player-shadow.png" id="3_76oj4"]
 [ext_resource type="Texture2D" uid="uid://ds3qj3x3ygswl" path="res://assets/art/props/1p.png" id="3_dyp2m"]
+[ext_resource type="Texture2D" uid="uid://dufd55y4u42bl" path="res://assets/art/palettes/teams-color-palette.png" id="3_kqtwu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6eyoc"]
+resource_local_to_scene = true
+shader = ExtResource("2_atpat")
+shader_parameter/skin_palette = ExtResource("3_6eyoc")
+shader_parameter/team_palette = ExtResource("3_kqtwu")
+shader_parameter/skin_color = 1
+shader_parameter/team_color = 0
 
 [sub_resource type="Animation" id="Animation_76oj4"]
 length = 0.001
@@ -268,6 +279,7 @@ speed = 80.0
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_6eyoc")
 texture = ExtResource("1_rp718")
 centered = false
 offset = Vector2(-16, -32)
@@ -289,6 +301,7 @@ libraries = {
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -3)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_rp718")
@@ -310,6 +323,7 @@ offset = Vector2(-8, -15)
 
 [node name="BallDetectionArea" type="Area2D" parent="."]
 unique_name_in_owner = true
+visible = false
 position = Vector2(0, -8)
 collision_layer = 0
 collision_mask = 4
