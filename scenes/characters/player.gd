@@ -28,6 +28,7 @@ enum State {MOVING, TACKLING, RECOVERING, PREPPING_SHOT, SHOOTING, PASSING, HEAD
 @onready var player_sprite : Sprite2D = %PlayerSprite
 @onready var teammate_detection_area : Area2D = %TeammateDetectionArea
 
+var ai_behavior : AIBehavior = AIBehavior.new()
 var country := ""
 var current_state: PlayerState = null
 var fullname := ""
@@ -36,12 +37,16 @@ var height := 0.0
 var height_velocity := 0.0
 var role := Player.Role.MIDFIELD
 var skin_color := Player.SkinColor.MEDIUM
+var spawn_position := Vector2.ZERO
 var state_factory := PlayerStateFactory.new()
+var weight_on_duty_steering := 0.0
 
 func _ready() -> void:
 	set_control_texture()
 	switch_state(State.MOVING)
 	set_shader_properties()
+	setup_ai_behavior()
+	spawn_position = position
 
 func _process(delta: float) -> void:
 	flip_sprites()
@@ -68,11 +73,16 @@ func initialize(context_position: Vector2, context_ball: Ball, context_own_goal:
 	heading = Vector2.LEFT if target_goal.position.x < position.x else Vector2.RIGHT
 	country = context_country
 
+func setup_ai_behavior() -> void:
+	ai_behavior.setup(self, ball)
+	ai_behavior.name = "AI Behavior"
+	add_child(ai_behavior)
+
 func switch_state(state: State, state_data: PlayerStateData = PlayerStateData.new()) -> void:
 	if current_state != null:
 		current_state.queue_free()
 	current_state = state_factory.get_fresh_state(state)
-	current_state.setup(self, state_data, animation_player, ball, teammate_detection_area, ball_detection_area, own_goal, target_goal)
+	current_state.setup(self, state_data, animation_player, ball, teammate_detection_area, ball_detection_area, own_goal, target_goal, ai_behavior)
 	current_state.state_transition_requested.connect(switch_state.bind())
 	current_state.name = "PlayerStateMachine: " + str(state)
 	call_deferred("add_child", current_state)
