@@ -22,7 +22,10 @@ func process_ai() -> void:
 	
 func perform_ai_movement() -> void:
 	var total_steering_force := Vector2.ZERO
-	total_steering_force += get_onduty_steering_force()
+	if player.has_ball():
+		total_steering_force += get_carrier_steering_force()
+	else:
+		total_steering_force += get_onduty_steering_force()
 	total_steering_force = total_steering_force.limit_length(1.0)
 	player.velocity = total_steering_force * player.speed
 
@@ -31,3 +34,20 @@ func perform_ai_decisions() -> void:
 
 func get_onduty_steering_force() -> Vector2:
 	return player.weight_on_duty_steering * player.position.direction_to(ball.position)
+
+func get_carrier_steering_force() -> Vector2:
+	var target := player.target_goal.get_center_target_position()
+	var direction := player.position.direction_to(target)
+	var weight := get_bicircular_weight(player.position, target, 100, 0, 150, 1)
+	return weight * direction
+
+func get_bicircular_weight(position: Vector2, center_target: Vector2, inner_circle_radius: float, inner_circle_weight: float, outer_circle_radius: float, outer_circle_weight: float) -> float:
+	var distance_to_center := position.distance_to(center_target)
+	if distance_to_center > outer_circle_radius:
+		return outer_circle_weight
+	elif distance_to_center < inner_circle_radius:
+		return inner_circle_weight
+	else:
+		var distance_to_inner_radius := distance_to_center - inner_circle_radius
+		var close_range_distance := outer_circle_radius - inner_circle_radius
+		return lerpf(inner_circle_weight, outer_circle_weight, distance_to_inner_radius / close_range_distance)
