@@ -126,6 +126,10 @@ func has_ball() -> bool:
 func set_control_texture() -> void:
 	control_sprite.texture = CONTROL_SCHEME_MAP[control_scheme]
 
+func is_facing_target_goal() -> bool:
+	var direction_to_target_goal := position.direction_to(target_goal.position)
+	return heading.dot(direction_to_target_goal) > 0
+
 func on_animation_complete() -> void:
 	if current_state != null:
 		current_state.on_animation_complete()

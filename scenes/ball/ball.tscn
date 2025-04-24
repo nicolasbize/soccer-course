@@ -71,6 +71,8 @@ radius = 4.0
 collision_layer = 4
 sync_to_physics = false
 script = ExtResource("1_stoaj")
+friction_air = 35.0
+friction_ground = 250.0
 
 [node name="BallSprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true

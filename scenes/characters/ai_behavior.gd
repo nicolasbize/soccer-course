@@ -2,6 +2,8 @@ class_name AIBehavior
 extends Node
 
 const DURATION_AI_TICK_FREQUENCY := 200
+const SHOT_DISTANCE := 150
+const SHOT_PROBABILITY := 0.3
 const SPREAD_ASSIST_FACTOR := 0.8
 
 var ball : Ball = null
@@ -33,7 +35,13 @@ func perform_ai_movement() -> void:
 	player.velocity = total_steering_force * player.speed
 
 func perform_ai_decisions() -> void:
-	pass
+	if ball.carrier == player:
+		var target := player.target_goal.get_center_target_position()
+		if player.position.distance_to(target) < SHOT_DISTANCE and randf() < SHOT_PROBABILITY:
+			face_towards_target_goal()
+			var shot_direction := player.position.direction_to(player.target_goal.get_random_target_position())
+			var data := PlayerStateData.build().set_shot_power(player.power).set_shot_direction(shot_direction)
+			player.switch_state(Player.State.SHOOTING, data)
 
 func get_onduty_steering_force() -> Vector2:
 	return player.weight_on_duty_steering * player.position.direction_to(ball.position)
@@ -61,6 +69,10 @@ func get_bicircular_weight(position: Vector2, center_target: Vector2, inner_circ
 		var distance_to_inner_radius := distance_to_center - inner_circle_radius
 		var close_range_distance := outer_circle_radius - inner_circle_radius
 		return lerpf(inner_circle_weight, outer_circle_weight, distance_to_inner_radius / close_range_distance)
+
+func face_towards_target_goal() -> void:
+	if not player.is_facing_target_goal():
+		player.heading = player.heading * -1
 
 func is_ball_carried_by_teammate() -> bool:
 	return ball.carrier != null and ball.carrier != player and ball.carrier.country == player.country
