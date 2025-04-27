@@ -12,6 +12,7 @@ func _enter_tree() -> void:
 	animation_player.play("hurt")
 	time_start_hurt = Time.get_ticks_msec()
 	player.height_velocity = HURT_HEIGHT_VELOCITY
+	player.height = 0.1
 	if ball.carrier == player:
 		ball.tumble(state_data.hurt_direction * BALL_TUMBLE_SPEED)
 
