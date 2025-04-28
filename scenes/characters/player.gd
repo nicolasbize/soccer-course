@@ -148,7 +148,7 @@ func is_facing_target_goal() -> bool:
 	return heading.dot(direction_to_target_goal) > 0
 
 func can_carry_ball() -> bool:
-	return role != Role.GOALIE
+	return current_state != null and current_state.can_carry_ball()
 
 func on_tackle_player(player: Player) -> void:
 	if player != self and player.country != country and player == ball.carrier:
