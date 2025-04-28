@@ -24,3 +24,5 @@ func _process(delta: float) -> void:
 		var data = PlayerStateData.build().set_shot_power(shot_power).set_shot_direction(shot_direction)
 		transition_state(Player.State.SHOOTING, data)
 		
+func can_pass() -> bool:
+	return true
