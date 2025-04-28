@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://fi75pm23saar"]
+[gd_scene load_steps=31 format=3 uid="uid://fi75pm23saar"]
 
 [ext_resource type="Texture2D" uid="uid://bxwplaq1wsde0" path="res://assets/art/characters/soccer-player.png" id="1_rp718"]
 [ext_resource type="Script" uid="uid://c2t8n5wr7lwlj" path="res://scenes/characters/player.gd" id="1_yewv4"]
@@ -283,11 +283,47 @@ tracks/0/keys = {
 "values": [12, 13, 14, 15, 16, 17]
 }
 
+[sub_resource type="Animation" id="Animation_k4v7y"]
+resource_name = "dive_down"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [72]
+}
+
+[sub_resource type="Animation" id="Animation_xrqxk"]
+resource_name = "dive_up"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [66]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dyp2m"]
 _data = {
 &"RESET": SubResource("Animation_76oj4"),
 &"bicycle_kick": SubResource("Animation_eojnx"),
 &"chest_control": SubResource("Animation_2l4js"),
+&"dive_down": SubResource("Animation_k4v7y"),
+&"dive_up": SubResource("Animation_xrqxk"),
 &"header": SubResource("Animation_7vyk4"),
 &"hurt": SubResource("Animation_xhtjm"),
 &"idle": SubResource("Animation_yewv4"),
@@ -315,8 +351,16 @@ size = Vector2(7, 7)
 radius = 40.0
 height = 120.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eojnx"]
+size = Vector2(7, 7)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eojnx"]
+radius = 3.0
+height = 18.0
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_yewv4")
 power = 150.0
 speed = 80.0
@@ -390,6 +434,7 @@ shape = SubResource("RectangleShape2D_6eyoc")
 
 [node name="OpponentDetectionArea" type="Area2D" parent="."]
 unique_name_in_owner = true
+visible = false
 collision_layer = 0
 collision_mask = 2
 monitorable = false
@@ -398,3 +443,24 @@ monitorable = false
 position = Vector2(20, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_6eyoc")
+
+[node name="PermanentDamageEmitterArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PermanentDamageEmitterArea"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_eojnx")
+
+[node name="GoalieHands" type="AnimatableBody2D" parent="."]
+collision_layer = 32
+collision_mask = 0
+sync_to_physics = false
+
+[node name="GoalieHandsCollider" type="CollisionShape2D" parent="GoalieHands"]
+unique_name_in_owner = true
+position = Vector2(0, -14)
+shape = SubResource("CapsuleShape2D_eojnx")

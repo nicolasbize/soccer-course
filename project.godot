@@ -101,6 +101,9 @@ p2_shoot={
 2d_physics/layer_1="PitchWalls"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Ball"
+2d_physics/layer_4="InvisibleWalls"
+2d_physics/layer_5="ScoringArea"
+2d_physics/layer_6="GoalKeeperHands"
 
 [rendering]
 
