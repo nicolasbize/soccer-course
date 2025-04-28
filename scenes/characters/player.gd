@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
+signal swap_requested(player: Player)
+
 const BALL_CONTROL_HEIGHT_MAX := 10.0
 const CONTROL_SCHEME_MAP : Dictionary = {
 	ControlScheme.CPU: preload("res://assets/art/props/cpu.png"),
