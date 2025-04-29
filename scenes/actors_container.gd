@@ -58,19 +58,19 @@ func set_on_duty_weights() -> void:
 
 		for i in range(cpu_players.size()):
 			cpu_players[i].weight_on_duty_steering = 1 - ease(float(i)/10.0, 0.1)
-
+	
 func on_player_swap_request(requester: Player) -> void:
 	var squad := squad_home if requester.country == squad_home[0].country else squad_away
-	var cpu_candidates : Array[Player] = squad.filter(
+	var cpu_players : Array[Player] = squad.filter(
 		func(p: Player): return p.control_scheme == Player.ControlScheme.CPU and p.role != Player.Role.GOALIE
-	)
-	cpu_candidates.sort_custom(func(p1: Player, p2: Player):
-		return p1.position.distance_squared_to(ball.position) < p2.position.distance_squared_to(ball.position)
-	)
-	var closest_cpu_to_ball : Player = cpu_candidates[0]
+	)		
+	cpu_players.sort_custom(func(p1: Player, p2: Player):
+		return p1.position.distance_squared_to(ball.position) < p2.position.distance_squared_to(ball.position))
+	var closest_cpu_to_ball : Player = cpu_players[0]
 	if closest_cpu_to_ball.position.distance_squared_to(ball.position) < requester.position.distance_squared_to(ball.position):
-		var player_control_scheme = requester.control_scheme
+		var player_control_scheme := requester.control_scheme
 		requester.control_scheme = Player.ControlScheme.CPU
 		requester.set_control_texture()
 		closest_cpu_to_ball.control_scheme = player_control_scheme
 		closest_cpu_to_ball.set_control_texture()
+	

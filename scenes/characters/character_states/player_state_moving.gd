@@ -23,7 +23,7 @@ func handle_human_movement() -> void:
 			ball.carrier.get_pass_request(player)
 		else:
 			player.swap_requested.emit(player)
-	
+
 	elif KeyUtils.is_action_just_pressed(player.control_scheme, KeyUtils.Action.SHOOT):
 		if player.has_ball():
 			transition_state(Player.State.PREPPING_SHOT)
