@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 KeyUtils="*res://utils/key_utils.gd"
 DataLoader="*res://utils/data_loader.gd"
+GameEvents="*res://scenes/game_events.gd"
 
 [debug]
 
