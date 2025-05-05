@@ -6,4 +6,4 @@ func _enter_tree() -> void:
 	GameEvents.kickoff_ready.connect(on_kickoff_ready.bind())
 
 func on_kickoff_ready() -> void:
-	transition_state(GameManager.State.KICKOFF)
+	transition_state(GameManager.State.KICKOFF, state_data)

@@ -3,6 +3,9 @@ extends PlayerState
 
 var has_arrived := false
 
+func _enter_tree() -> void:
+	GameEvents.kickoff_started.connect(on_kickoff_started.bind())
+
 func _process(_delta: float) -> void:
 	if not has_arrived:
 		var direction := player.position.direction_to(state_data.reset_position)
@@ -17,3 +20,6 @@ func _process(_delta: float) -> void:
 
 func is_ready_for_kickoff() -> bool:
 	return has_arrived
+
+func on_kickoff_started() -> void:
+	transition_state(Player.State.MOVING)
