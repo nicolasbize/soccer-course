@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ceq82hvpvre23"]
+
+[ext_resource type="FontFile" uid="uid://yyvkod86gv2y" path="res://assets/fonts/Pixeled.ttf" id="1_1fvms"]
+
+[resource]
+Label/colors/font_color = Color(1, 1, 0, 1)
+Label/font_sizes/font_size = 5
+Label/fonts/font = ExtResource("1_1fvms")

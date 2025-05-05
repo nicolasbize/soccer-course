@@ -7,7 +7,7 @@ enum State {IN_PLAY, SCORED, RESET, KICKOFF, OVERTIME, GAMEOVER}
 var countries : Array[String] = ["FRANCE", "USA"]
 var current_state : GameState = null
 var player_setup : Array[String] = ["FRANCE", ""]
-var score := [0, 0]
+var score : Array[int] = [0, 0]
 var state_factory := GameStateFactory.new()
 var time_left : float
 
