@@ -20,6 +20,7 @@ func _ready() -> void:
 	GameEvents.ball_released.connect(on_ball_released.bind())
 	GameEvents.score_changed.connect(on_score_changed.bind())
 	GameEvents.team_reset.connect(on_team_reset.bind())
+	GameEvents.game_over.connect(on_game_over.bind())
 
 func _process(_delta: float) -> void:
 	update_clock()
@@ -44,10 +45,16 @@ func on_ball_released() -> void:
 	player_label.text = ""
 
 func on_score_changed() -> void:
-	goal_scorer_label.text = "%s SCORED!" % [last_ball_carrier]
-	score_info_label.text = ScoreHelper.get_current_score_info(GameManager.countries, GameManager.score)
-	animation_player.play("goal_appear")
+	if not GameManager.is_time_up():
+		goal_scorer_label.text = "%s SCORED!" % [last_ball_carrier]
+		score_info_label.text = ScoreHelper.get_current_score_info(GameManager.countries, GameManager.score)
+		animation_player.play("goal_appear")
 	update_score()
 
 func on_team_reset() -> void:
-	animation_player.play("goal_hide")
+	if GameManager.has_someone_scored():
+		animation_player.play("goal_hide")
+
+func on_game_over(_country_winner: String) -> void:
+	score_info_label.text = ScoreHelper.get_final_score_info(GameManager.countries, GameManager.score)
+	animation_player.play("game_over")

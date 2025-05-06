@@ -6,8 +6,8 @@ func _enter_tree() -> void:
 
 func _process(delta: float) -> void:
 	manager.time_left -= delta
-	if manager.time_left <= 0:
-		if manager.score[0] == manager.score[1]:
+	if manager.is_time_up():
+		if manager.is_game_tied():
 			transition_state(GameManager.State.OVERTIME)
 		else:
 			transition_state(GameManager.State.GAMEOVER)
