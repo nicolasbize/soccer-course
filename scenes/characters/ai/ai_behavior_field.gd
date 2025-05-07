@@ -21,6 +21,7 @@ func perform_ai_movement() -> void:
 				total_steering_force += get_spawn_steering_force()
 			elif ball.carrier == null:
 				total_steering_force += get_ball_proximity_steering_force()
+				total_steering_force += get_density_around_ball_steering_force()
 		
 	total_steering_force = total_steering_force.limit_length(1.0)
 	player.velocity = total_steering_force * player.speed
@@ -62,6 +63,14 @@ func get_ball_proximity_steering_force() -> Vector2:
 func get_spawn_steering_force() -> Vector2:
 	var weight := get_bicircular_weight(player.position, player.spawn_position, 30, 0, 100, 1)
 	var direction := player.position.direction_to(player.spawn_position)
+	return weight * direction
+
+func get_density_around_ball_steering_force() -> Vector2:
+	var nb_teammates_near_ball := ball.get_proximity_teammates_count(player.country)
+	if nb_teammates_near_ball == 0:
+		return Vector2.ZERO
+	var weight := 1 - 1.0 / nb_teammates_near_ball
+	var direction := ball.position.direction_to(player.position)
 	return weight * direction
 
 func has_teammate_in_view() -> bool:
