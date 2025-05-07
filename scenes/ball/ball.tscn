@@ -1,8 +1,26 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4fcsbd0h08uo"]
+[gd_scene load_steps=14 format=3 uid="uid://b4fcsbd0h08uo"]
 
 [ext_resource type="Texture2D" uid="uid://but517a4moqxv" path="res://assets/art/props/soccer-ball.png" id="1_oqv3d"]
 [ext_resource type="Script" uid="uid://bg0ft6ggshbaj" path="res://scenes/ball/ball.gd" id="1_stoaj"]
 [ext_resource type="Texture2D" uid="uid://buaco27np8mh1" path="res://assets/art/props/ball-shadow.png" id="2_nv6q1"]
+[ext_resource type="Texture2D" uid="uid://cu2obamurss5p" path="res://assets/art/particles/white-circle.png" id="2_xotqv"]
+
+[sub_resource type="Curve" id="Curve_jbgth"]
+_data = [Vector2(0, 0.269663), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yjhvv"]
+curve = SubResource("Curve_jbgth")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a81tc"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_max = 0.4
+scale_curve = SubResource("CurveTexture_yjhvv")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nv6q1"]
 radius = 5.0
@@ -74,6 +92,15 @@ sync_to_physics = false
 script = ExtResource("1_stoaj")
 friction_air = 35.0
 friction_ground = 250.0
+
+[node name="ShotParticles" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -8)
+emitting = false
+amount = 30
+texture = ExtResource("2_xotqv")
+lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_a81tc")
 
 [node name="BallSprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true

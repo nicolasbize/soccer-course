@@ -17,6 +17,7 @@ enum State {CARRIED, FREEFORM, SHOT}
 @onready var ball_sprite : Sprite2D = %BallSprite
 @onready var player_detection_area : Area2D = %PlayerDetectionArea
 @onready var scoring_raycast : RayCast2D = %ScoringRaycast
+@onready var shot_particles : GPUParticles2D = %ShotParticles
 
 var carrier : Player = null
 var current_state : BallState = null
@@ -40,7 +41,7 @@ func switch_state(state: Ball.State, data: BallStateData = BallStateData.new()) 
 	if current_state != null:
 		current_state.queue_free()
 	current_state = state_factory.get_fresh_state(state)
-	current_state.setup(self, data, player_detection_area, carrier, animation_player, ball_sprite)
+	current_state.setup(self, data, player_detection_area, carrier, animation_player, ball_sprite, shot_particles)
 	current_state.state_transition_requested.connect(switch_state.bind())
 	current_state.name = "BallStateMachine"
 	call_deferred("add_child", current_state)
