@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 DataLoader="*res://utils/data_loader.gd"
 GameEvents="*res://scenes/game_events.gd"
 GameManager="*res://scenes/game_manager/game_manager.gd"
+SoundPlayer="*res://scenes/audio/sound_player.gd"
 
 [debug]
 
