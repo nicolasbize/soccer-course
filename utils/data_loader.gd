@@ -1,5 +1,6 @@
 extends Node
 
+var countries : Array[String] = ["DEFAULT"]
 var squads : Dictionary[String, Array]
 
 func _init() -> void:
@@ -12,6 +13,7 @@ func _init() -> void:
 		printerr("could not parse squads.json")
 	for team in json.data:
 		var country_name := team["country"] as String
+		countries.append(country_name)
 		var players := team["players"] as Array
 		if not squads.has(country_name):
 			squads.set(country_name, [])
@@ -30,3 +32,6 @@ func get_squad(country: String) -> Array:
 	if squads.has(country):
 		return squads[country]
 	return []
+
+func get_countries() -> Array[String]:
+	return countries

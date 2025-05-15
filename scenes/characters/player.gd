@@ -9,7 +9,6 @@ const CONTROL_SCHEME_MAP : Dictionary = {
 	ControlScheme.P1: preload("res://assets/art/props/1p.png"),
 	ControlScheme.P2: preload("res://assets/art/props/2p.png"),
 }
-const COUNTRIES := ["DEFAULT", "FRANCE", "ARGENTINA", "BRAZIL", "ENGLAND", "GERMANY", "ITALY", "SPAIN", "USA"]
 const GRAVITY := 8.0
 const WALK_ANIM_THRESHOLD := 0.6
 
@@ -74,8 +73,9 @@ func _process(delta: float) -> void:
 
 func set_shader_properties() -> void:
 	player_sprite.material.set_shader_parameter("skin_color", skin_color)
-	var country_color := COUNTRIES.find(country)
-	country_color = clampi(country_color, 0, COUNTRIES.size() - 1)
+	var countries := DataLoader.get_countries()
+	var country_color := countries.find(country)
+	country_color = clampi(country_color, 0, countries.size() - 1)
 	player_sprite.material.set_shader_parameter("team_color", country_color)
 
 func initialize(context_position: Vector2, context_kickoff_position: Vector2, context_ball: Ball, context_own_goal: Goal, context_target_goal: Goal, context_player_data: PlayerResource, context_country: String) -> void:
