@@ -1,0 +1,111 @@
+[gd_scene load_steps=9 format=3 uid="uid://dxxo805xu7qhw"]
+
+[ext_resource type="Texture2D" uid="uid://ds3qj3x3ygswl" path="res://assets/art/props/1p.png" id="1_covaj"]
+[ext_resource type="Script" uid="uid://bvx52cl7i1g2n" path="res://scenes/screens/team_selection/flag_selector.gd" id="1_irl4t"]
+[ext_resource type="Texture2D" uid="uid://byoku4el20spv" path="res://assets/art/props/2p.png" id="3_52pv5"]
+[ext_resource type="Texture2D" uid="uid://4efa87tpu8pq" path="res://assets/art/ui/flags/flag-selection.png" id="4_ydcjm"]
+
+[sub_resource type="Animation" id="Animation_7p6sr"]
+resource_name = "selecting"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Border:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_irl4t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Border:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_52pv5"]
+resource_name = "selected"
+length = 0.1
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Border:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ydcjm"]
+_data = {
+&"RESET": SubResource("Animation_irl4t"),
+&"selected": SubResource("Animation_52pv5"),
+&"selecting": SubResource("Animation_7p6sr")
+}
+
+[node name="FlagSelector" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_irl4t")
+
+[node name="Indicator1P" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -4.0
+offset_top = -18.0
+offset_right = 11.0
+offset_bottom = -7.0
+scale = Vector2(2, 2)
+texture = ExtResource("1_covaj")
+stretch_mode = 2
+
+[node name="Indicator2P" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 18.0
+offset_top = -18.0
+offset_right = 33.0
+offset_bottom = -7.0
+scale = Vector2(2, 2)
+texture = ExtResource("3_52pv5")
+stretch_mode = 2
+
+[node name="Border" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 46.0
+offset_bottom = 30.0
+texture = ExtResource("4_ydcjm")
+stretch_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_ydcjm")
+}
+autoplay = "selecting"

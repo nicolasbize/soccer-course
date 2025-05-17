@@ -263,9 +263,9 @@ texture = ExtResource("1_du1io")
 [node name="TitleTexture" type="TextureRect" parent="Background"]
 layout_mode = 1
 offset_left = 25.0
-offset_top = 20.0
+offset_top = -70.0
 offset_right = 164.0
-offset_bottom = 85.0
+offset_bottom = -5.0
 texture = ExtResource("2_ai35v")
 
 [node name="Mask" type="TextureRect" parent="Background"]
@@ -275,7 +275,8 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -125.0
-offset_bottom = 180.0
+offset_top = 180.0
+offset_bottom = 360.0
 grow_horizontal = 0
 texture = ExtResource("3_nawi7")
 
@@ -312,9 +313,9 @@ texture = ExtResource("5_u4ap7")
 [node name="SinglePlayerTexture" type="TextureRect" parent="Background"]
 unique_name_in_owner = true
 layout_mode = 1
-offset_left = 35.0
+offset_left = -150.0
 offset_top = 100.0
-offset_right = 177.0
+offset_right = -8.0
 offset_bottom = 121.0
 texture = ExtResource("7_41loo")
 stretch_mode = 2
@@ -322,9 +323,9 @@ stretch_mode = 2
 [node name="TwoPlayersTexture" type="TextureRect" parent="Background"]
 unique_name_in_owner = true
 layout_mode = 1
-offset_left = 35.0
+offset_left = -150.0
 offset_top = 125.0
-offset_right = 177.0
+offset_right = -8.0
 offset_bottom = 146.0
 texture = ExtResource("8_iuc4d")
 stretch_mode = 2
