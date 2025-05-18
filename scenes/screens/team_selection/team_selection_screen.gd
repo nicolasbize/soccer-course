@@ -40,12 +40,12 @@ func try_navigate(selector_index: int, direction: Vector2i) -> void:
 func place_flags() -> void:
 	for j in range(NB_ROWS):
 		for i in range(NB_COLS):
-			var country_index := i + j * NB_COLS + 1
-			var country := DataLoader.get_countries()[country_index]
 			var flag_texture := TextureRect.new()
-			flag_texture.texture = FlagHelper.get_texture(country)
-			flag_texture.scale = Vector2.ONE * 2
 			flag_texture.position = FLAG_ANCHOR_POINT + Vector2(55 * i, 50 * j)
+			var country_index := 1 + i + j * NB_COLS
+			var country := DataLoader.get_countries()[country_index]
+			flag_texture.texture = FlagHelper.get_texture(country)
+			flag_texture.scale = Vector2(2, 2)
 			flag_texture.z_index = 1
 			flags_container.add_child(flag_texture)
 			
@@ -58,5 +58,5 @@ func add_selector(control_scheme: Player.ControlScheme) -> void:
 	var selector := FLAG_SELECTOR_PREFAB.instantiate()
 	selector.position = flags_container.get_child(0).position
 	selector.control_scheme = control_scheme
-	flags_container.add_child(selector)
 	selectors.append(selector)
+	flags_container.add_child(selector)
