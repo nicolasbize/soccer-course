@@ -1,21 +1,23 @@
-[gd_scene load_steps=13 format=3 uid="uid://bid4q8hesw3wj"]
+[gd_scene load_steps=14 format=3 uid="uid://bid4q8hesw3wj"]
 
-[ext_resource type="Texture2D" uid="uid://b7c82hlauxi3s" path="res://assets/art/backgrounds/pitch-background.png" id="1_4wyf3"]
-[ext_resource type="Script" uid="uid://br1v7ui0uvo1j" path="res://scenes/camera.gd" id="1_qfnet"]
-[ext_resource type="Texture2D" uid="uid://cjo760h5txa0w" path="res://assets/art/backgrounds/pitch-pattern.png" id="2_k0juu"]
-[ext_resource type="Texture2D" uid="uid://cv4n0o2f54jf6" path="res://assets/art/backgrounds/pitch-lines.png" id="3_71j4m"]
-[ext_resource type="PackedScene" uid="uid://b4fcsbd0h08uo" path="res://scenes/ball/ball.tscn" id="5_71j4m"]
-[ext_resource type="Script" uid="uid://c3xkqjktqgwen" path="res://scenes/actors_container.gd" id="5_e3hyu"]
-[ext_resource type="PackedScene" uid="uid://dm3olt4s4cok1" path="res://scenes/goal/goal.tscn" id="5_i7141"]
-[ext_resource type="Texture2D" uid="uid://dbb2dcntpi4w5" path="res://assets/art/backgrounds/top-wall.png" id="6_4mrxx"]
-[ext_resource type="Texture2D" uid="uid://dbt1h0omdgqrs" path="res://assets/art/backgrounds/bottom-wall.png" id="7_7r4gi"]
-[ext_resource type="Texture2D" uid="uid://rimmleir8goq" path="res://assets/art/backgrounds/side-wall.png" id="8_w7kh3"]
-[ext_resource type="PackedScene" uid="uid://clkoq0xwqsx4d" path="res://scenes/ui/ui.tscn" id="11_e3hyu"]
+[ext_resource type="Script" uid="uid://br1v7ui0uvo1j" path="res://scenes/screens/world/camera.gd" id="1_a8rjt"]
+[ext_resource type="Script" uid="uid://c7xec4q6s6o2b" path="res://scenes/screens/world/world_screen.gd" id="1_yvi4u"]
+[ext_resource type="Texture2D" uid="uid://b7c82hlauxi3s" path="res://assets/art/backgrounds/pitch-background.png" id="2_xdlr3"]
+[ext_resource type="Texture2D" uid="uid://cjo760h5txa0w" path="res://assets/art/backgrounds/pitch-pattern.png" id="3_4dvkn"]
+[ext_resource type="Texture2D" uid="uid://cv4n0o2f54jf6" path="res://assets/art/backgrounds/pitch-lines.png" id="4_dy54j"]
+[ext_resource type="Script" uid="uid://c3xkqjktqgwen" path="res://scenes/screens/world/actors_container.gd" id="5_rq1y8"]
+[ext_resource type="PackedScene" uid="uid://dm3olt4s4cok1" path="res://scenes/goal/goal.tscn" id="6_hitmj"]
+[ext_resource type="Texture2D" uid="uid://dbb2dcntpi4w5" path="res://assets/art/backgrounds/top-wall.png" id="7_70g5m"]
+[ext_resource type="Texture2D" uid="uid://dbt1h0omdgqrs" path="res://assets/art/backgrounds/bottom-wall.png" id="8_dfmiw"]
+[ext_resource type="Texture2D" uid="uid://rimmleir8goq" path="res://assets/art/backgrounds/side-wall.png" id="9_cwmqy"]
+[ext_resource type="PackedScene" uid="uid://b4fcsbd0h08uo" path="res://scenes/ball/ball.tscn" id="10_8m3kx"]
+[ext_resource type="PackedScene" uid="uid://clkoq0xwqsx4d" path="res://scenes/ui/ui.tscn" id="11_rs40n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7kh3"]
 size = Vector2(802, 7)
 
-[node name="World" type="Node2D"]
+[node name="WorldScreen" type="Node"]
+script = ExtResource("1_yvi4u")
 
 [node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("ball")]
 limit_left = 0
@@ -23,29 +25,29 @@ limit_top = 0
 limit_right = 850
 limit_bottom = 360
 position_smoothing_enabled = true
-script = ExtResource("1_qfnet")
+script = ExtResource("1_a8rjt")
 ball = NodePath("../ActorsContainer/Ball")
 
 [node name="Backgrounds" type="Node2D" parent="."]
 
 [node name="Grass" type="Sprite2D" parent="Backgrounds"]
 modulate = Color(0.517647, 0.803922, 0.164706, 1)
-texture = ExtResource("1_4wyf3")
+texture = ExtResource("2_xdlr3")
 centered = false
 
 [node name="Pattern" type="Sprite2D" parent="Backgrounds"]
 modulate = Color(0.282353, 0.607843, 0, 1)
-texture = ExtResource("2_k0juu")
+texture = ExtResource("3_4dvkn")
 centered = false
 
 [node name="Lines" type="Sprite2D" parent="Backgrounds"]
 modulate = Color(0.941176, 0.941176, 0.941176, 1)
-texture = ExtResource("3_71j4m")
+texture = ExtResource("4_dy54j")
 centered = false
 
 [node name="ActorsContainer" type="Node2D" parent="." node_paths=PackedStringArray("ball", "goal_home", "goal_away")]
 y_sort_enabled = true
-script = ExtResource("5_e3hyu")
+script = ExtResource("5_rq1y8")
 ball = NodePath("Ball")
 goal_home = NodePath("PitchObjects/GoalHome")
 goal_away = NodePath("PitchObjects/GoalAway")
@@ -85,16 +87,16 @@ position = Vector2(-5, 30)
 [node name="PitchObjects" type="Node2D" parent="ActorsContainer"]
 y_sort_enabled = true
 
-[node name="GoalHome" parent="ActorsContainer/PitchObjects" instance=ExtResource("5_i7141")]
+[node name="GoalHome" parent="ActorsContainer/PitchObjects" instance=ExtResource("6_hitmj")]
 position = Vector2(32, 220)
 
-[node name="GoalAway" parent="ActorsContainer/PitchObjects" instance=ExtResource("5_i7141")]
+[node name="GoalAway" parent="ActorsContainer/PitchObjects" instance=ExtResource("6_hitmj")]
 position = Vector2(818, 220)
 scale = Vector2(-1, 1)
 
 [node name="TopWall" type="Sprite2D" parent="ActorsContainer/PitchObjects"]
 position = Vector2(49, 32)
-texture = ExtResource("6_4mrxx")
+texture = ExtResource("7_70g5m")
 centered = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="ActorsContainer/PitchObjects/TopWall"]
@@ -105,7 +107,7 @@ polygon = PackedVector2Array(0, 116, 13, 0, 739, 0, 752, 116, 740, 116, 727, 12,
 
 [node name="BottomWall" type="Sprite2D" parent="ActorsContainer/PitchObjects"]
 position = Vector2(24, 344)
-texture = ExtResource("7_7r4gi")
+texture = ExtResource("8_dfmiw")
 centered = false
 offset = Vector2(0, -12)
 
@@ -118,7 +120,7 @@ shape = SubResource("RectangleShape2D_w7kh3")
 
 [node name="LeftWall" type="Sprite2D" parent="ActorsContainer/PitchObjects"]
 position = Vector2(24, 221)
-texture = ExtResource("8_w7kh3")
+texture = ExtResource("9_cwmqy")
 centered = false
 offset = Vector2(0, -14)
 
@@ -131,7 +133,7 @@ polygon = PackedVector2Array(14, -1, 30, -1, 14, 116, 0, 116)
 [node name="RightWall" type="Sprite2D" parent="ActorsContainer/PitchObjects"]
 position = Vector2(827, 222)
 scale = Vector2(-1, 1)
-texture = ExtResource("8_w7kh3")
+texture = ExtResource("9_cwmqy")
 centered = false
 offset = Vector2(0, -14)
 
@@ -141,7 +143,7 @@ collision_mask = 0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ActorsContainer/PitchObjects/RightWall/StaticBody2D"]
 polygon = PackedVector2Array(14, -1, 30, -1, 14, 116, 0, 116)
 
-[node name="Ball" parent="ActorsContainer" instance=ExtResource("5_71j4m")]
+[node name="Ball" parent="ActorsContainer" instance=ExtResource("10_8m3kx")]
 position = Vector2(424, 181)
 
-[node name="UI" parent="." instance=ExtResource("11_e3hyu")]
+[node name="UI" parent="." instance=ExtResource("11_rs40n")]

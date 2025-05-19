@@ -19,11 +19,13 @@ func _init() -> void:
 func _ready() -> void:
 	time_left = DURATION_GAME_SEC
 	GameEvents.impact_received.connect(on_impact_received.bind())
-	switch_state(State.RESET)
 
 func _process(_delta: float) -> void:
 	if get_tree().paused and Time.get_ticks_msec() - time_since_paused > DURATION_IMPACT_PAUSE:
 		get_tree().paused = false
+
+func start_game() -> void:
+	switch_state(State.RESET)
 
 func switch_state(state: State, data: GameStateData = GameStateData.new()) -> void:
 	if current_state != null:
