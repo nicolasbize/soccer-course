@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2d1g2gq4qley"]
+
+[ext_resource type="Texture2D" uid="uid://dijw3l31picu5" path="res://assets/art/ui/flags/flag-placeholder.png" id="1_x0ttk"]
+[ext_resource type="Texture2D" uid="uid://4efa87tpu8pq" path="res://assets/art/ui/flags/flag-selection.png" id="2_c8170"]
+[ext_resource type="Script" uid="uid://clhp76tgwq5vv" path="res://scenes/screens/tournament/bracket_flag.gd" id="2_y4fue"]
+
+[node name="BracketFlag" type="TextureRect"]
+custom_minimum_size = Vector2(44, 28)
+offset_right = 22.0
+offset_bottom = 14.0
+texture = ExtResource("1_x0ttk")
+script = ExtResource("2_y4fue")
+
+[node name="ScoreLabel" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 7
+text = "5 - 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Border" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 46.0
+offset_bottom = 30.0
+texture = ExtResource("2_c8170")
