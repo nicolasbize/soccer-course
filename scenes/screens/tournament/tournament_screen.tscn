@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://yvvs8e1wf7va"]
+[gd_scene load_steps=8 format=3 uid="uid://yvvs8e1wf7va"]
 
 [ext_resource type="Script" uid="uid://dfq61sg02fkdk" path="res://scenes/screens/tournament/tournament_screen.gd" id="1_hvkgv"]
 [ext_resource type="Texture2D" uid="uid://cjquygjjgv7en" path="res://assets/art/ui/teamselection/tournament-screen.png" id="2_11qsq"]
 [ext_resource type="PackedScene" uid="uid://c2d1g2gq4qley" path="res://scenes/screens/tournament/bracket_flag.tscn" id="3_ru4pj"]
 [ext_resource type="Texture2D" uid="uid://brd3a0i2h28r" path="res://assets/art/ui/flags/flag-vseparator.png" id="4_7eqbv"]
 [ext_resource type="Texture2D" uid="uid://cugg6pcsehqqn" path="res://assets/art/ui/flags/flag-hseparator.png" id="5_702pu"]
+[ext_resource type="Texture2D" uid="uid://cp6qh2i72tjlk" path="res://assets/art/ui/teamselection/worldcup-label.png" id="6_v5v2t"]
+[ext_resource type="Texture2D" uid="uid://cy3uq6aafbema" path="res://assets/art/ui/teamselection/quarters-label.png" id="7_6qxme"]
 
 [node name="TournamentScreen" type="Node"]
 script = ExtResource("1_hvkgv")
@@ -19,6 +21,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 10.0
+offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
@@ -153,3 +157,69 @@ texture = ExtResource("4_7eqbv")
 
 [node name="BracketFlag4" parent="Background/BracketsContainer/QFRightContainer" instance=ExtResource("3_ru4pj")]
 layout_mode = 2
+
+[node name="PressKeyLabel" type="Label" parent="Background"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.2, 0.705882, 1, 1)
+theme_override_constants/outline_size = 5
+text = "PRESS ANY KEY TO CONTINUE..."
+horizontal_alignment = 1
+
+[node name="WorldCupTexture" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_top = 4.0
+offset_right = 90.0
+offset_bottom = 33.0
+grow_horizontal = 2
+texture = ExtResource("6_v5v2t")
+
+[node name="StageTexture" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -69.0
+offset_top = 35.0
+offset_right = 69.0
+offset_bottom = 63.0
+grow_horizontal = 2
+texture = ExtResource("7_6qxme")
+
+[node name="WinnerContainer" type="Control" parent="Background"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="BracketFlag" parent="Background/WinnerContainer" instance=ExtResource("3_ru4pj")]
+custom_minimum_size = Vector2(66, 42)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.0
+offset_top = -57.0
+offset_right = 33.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
