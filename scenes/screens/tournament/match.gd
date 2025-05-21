@@ -13,7 +13,7 @@ func _init(team_home: String, team_away: String) -> void:
 
 func is_tied() -> bool:
 	return goals_home == goals_away
-	
+
 func has_someone_scored() -> bool:
 	return goals_home > 0 or goals_away > 0
 
@@ -21,7 +21,7 @@ func increase_score(country_scored_on: String) -> void:
 	if country_scored_on == country_home:
 		goals_away += 1
 	else:
-		goals_away += 1
+		goals_home += 1
 	update_match_info()
 
 func update_match_info() -> void:
