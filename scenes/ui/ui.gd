@@ -26,11 +26,12 @@ func _process(_delta: float) -> void:
 	update_clock()
 
 func update_score() -> void:
-	score_label.text = ScoreHelper.get_score_text(GameManager.score)
+	score_label.text = ScoreHelper.get_score_text(GameManager.current_match)
 
 func update_flags() -> void:
 	for i in flag_textures.size():
-		flag_textures[i].texture = FlagHelper.get_texture(GameManager.countries[i])
+		var countries := [GameManager.current_match.country_home, GameManager.current_match.country_away]
+		flag_textures[i].texture = FlagHelper.get_texture(countries[i])
 
 func update_clock() -> void:
 	if GameManager.time_left < 0:
@@ -47,14 +48,14 @@ func on_ball_released() -> void:
 func on_score_changed() -> void:
 	if not GameManager.is_time_up():
 		goal_scorer_label.text = "%s SCORED!" % [last_ball_carrier]
-		score_info_label.text = ScoreHelper.get_current_score_info(GameManager.countries, GameManager.score)
+		score_info_label.text = ScoreHelper.get_current_score_info(GameManager.current_match)
 		animation_player.play("goal_appear")
 	update_score()
 
 func on_team_reset() -> void:
-	if GameManager.has_someone_scored():
+	if GameManager.current_match.has_someone_scored():
 		animation_player.play("goal_hide")
 
 func on_game_over(_country_winner: String) -> void:
-	score_info_label.text = ScoreHelper.get_final_score_info(GameManager.countries, GameManager.score)
+	score_info_label.text = ScoreHelper.get_final_score_info(GameManager.current_match)
 	animation_player.play("game_over")

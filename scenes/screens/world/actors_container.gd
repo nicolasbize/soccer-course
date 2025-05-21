@@ -22,12 +22,12 @@ func _init() -> void:
 	GameEvents.impact_received.connect(on_impact_received.bind())
 
 func _ready() -> void:
-	squad_home = spawn_players(GameManager.countries[0], goal_home)
-	goal_home.initialize(GameManager.countries[0])
+	squad_home = spawn_players(GameManager.current_match.country_home, goal_home)
+	goal_home.initialize(GameManager.current_match.country_home)
 	spawns.scale.x = -1
 	kickoffs.scale.x = -1
-	squad_away = spawn_players(GameManager.countries[1], goal_away)
-	goal_away.initialize(GameManager.countries[1])
+	squad_away = spawn_players(GameManager.current_match.country_away, goal_away)
+	goal_away.initialize(GameManager.current_match.country_away)
 	setup_control_schemes()
 
 func _process(_delta: float) -> void:
