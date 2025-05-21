@@ -29,6 +29,7 @@ theme_override_constants/separation = 0
 alignment = 1
 
 [node name="QFLeftContainer" type="VBoxContainer" parent="Background/BracketsContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
@@ -62,6 +63,7 @@ custom_minimum_size = Vector2(2, 0)
 layout_mode = 2
 
 [node name="SFLeftContainer" type="VBoxContainer" parent="Background/BracketsContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
@@ -81,6 +83,7 @@ custom_minimum_size = Vector2(2, 0)
 layout_mode = 2
 
 [node name="FinalLeftContainer" type="VBoxContainer" parent="Background/BracketsContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
@@ -99,6 +102,7 @@ layout_mode = 2
 texture = ExtResource("5_702pu")
 
 [node name="FinalRightContainer" type="VBoxContainer" parent="Background/BracketsContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
@@ -111,6 +115,7 @@ custom_minimum_size = Vector2(2, 0)
 layout_mode = 2
 
 [node name="SFRightContainer" type="VBoxContainer" parent="Background/BracketsContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
@@ -130,6 +135,7 @@ custom_minimum_size = Vector2(2, 0)
 layout_mode = 2
 
 [node name="QFRightContainer" type="VBoxContainer" parent="Background/BracketsContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
@@ -185,6 +191,7 @@ grow_horizontal = 2
 texture = ExtResource("6_v5v2t")
 
 [node name="StageTexture" type="TextureRect" parent="Background"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -197,6 +204,7 @@ grow_horizontal = 2
 texture = ExtResource("7_6qxme")
 
 [node name="WinnerContainer" type="Control" parent="Background"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
