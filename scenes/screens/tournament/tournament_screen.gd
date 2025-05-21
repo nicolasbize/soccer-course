@@ -20,13 +20,16 @@ var player_country : String = GameManager.player_setup[0]
 var tournament : Tournament = null
 
 func _ready() -> void:
-	tournament = Tournament.new()
+	tournament = screen_data.tournament
 	refresh_brackets()
 
 func _process(_delta: float) -> void:
 	if KeyUtils.is_action_just_pressed(Player.ControlScheme.P1, KeyUtils.Action.SHOOT):
-		tournament.advance()
-		refresh_brackets()
+		if tournament.current_stage < Tournament.Stage.COMPLETE:
+			transition_screen(SoccerGame.ScreenType.IN_GAME, screen_data)
+		else:
+			transition_screen(SoccerGame.ScreenType.MAIN_MENU)
+		SoundPlayer.play(SoundPlayer.Sound.UI_SELECT)
 
 func refresh_brackets() -> void:
 	for stage in range(tournament.current_stage + 1):
