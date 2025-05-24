@@ -16,7 +16,6 @@ func _init() -> void:
 	process_mode = ProcessMode.PROCESS_MODE_ALWAYS
 
 func _ready() -> void:
-	time_left = DURATION_GAME_SEC
 	GameEvents.impact_received.connect(on_impact_received.bind())
 
 func _process(_delta: float) -> void:
@@ -24,6 +23,7 @@ func _process(_delta: float) -> void:
 		get_tree().paused = false
 
 func start_game() -> void:
+	time_left = DURATION_GAME_SEC
 	switch_state(State.RESET)
 
 func switch_state(state: State, data: GameStateData = GameStateData.new()) -> void:

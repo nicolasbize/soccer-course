@@ -18,6 +18,7 @@ size = Vector2(802, 7)
 
 [node name="WorldScreen" type="Node"]
 script = ExtResource("1_yvi4u")
+music = 1
 
 [node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("ball")]
 limit_left = 0

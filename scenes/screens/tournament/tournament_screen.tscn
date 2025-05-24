@@ -10,6 +10,7 @@
 
 [node name="TournamentScreen" type="Node"]
 script = ExtResource("1_hvkgv")
+music = 3
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 40.0

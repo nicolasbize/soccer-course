@@ -3,12 +3,10 @@ extends Screen
 
 @onready var game_over_timer := %GameOverTimer
 
-func _enter_tree() -> void:
-	GameEvents.game_over.connect(on_game_over.bind())
-	GameManager.start_game()
-
 func _ready() -> void:
 	game_over_timer.timeout.connect(on_transition.bind())
+	GameEvents.game_over.connect(on_game_over.bind())
+	GameManager.start_game()
 
 func on_game_over(_winner: String) -> void:
 	game_over_timer.start()

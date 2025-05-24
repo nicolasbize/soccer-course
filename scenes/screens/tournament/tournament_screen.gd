@@ -21,6 +21,8 @@ var tournament : Tournament = null
 
 func _ready() -> void:
 	tournament = screen_data.tournament
+	if tournament.current_stage == Tournament.Stage.COMPLETE:
+		MusicPlayer.play_music(MusicPlayer.Music.WIN)
 	refresh_brackets()
 
 func _process(_delta: float) -> void:

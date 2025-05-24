@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/tournament.mp3-fc0131290a562d7262df025d38c31d
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
