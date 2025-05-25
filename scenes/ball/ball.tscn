@@ -141,7 +141,7 @@ shape = SubResource("CircleShape2D_stoaj")
 [node name="ScoringRaycast" type="RayCast2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, -5)
-target_position = Vector2(80, 0)
+target_position = Vector2(60, 0)
 collision_mask = 16
 collide_with_areas = true
 collide_with_bodies = false

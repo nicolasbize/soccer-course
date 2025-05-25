@@ -2,7 +2,7 @@ class_name Ball
 extends AnimatableBody2D
 
 const BOUNCINESS := 0.8
-const DISTANCE_HIGH_PASS := 130
+const DISTANCE_HIGH_PASS := 90
 const DURATION_TUMBLE_LOCK := 200
 const DURATION_PASS_LOCK := 500
 const KICKOFF_PASS_DISTANCE := 30.0
@@ -64,7 +64,7 @@ func pass_to(destination: Vector2, lock_duration: int = DURATION_PASS_LOCK) -> v
 	var intensity := sqrt(2 * distance * friction_ground)
 	velocity = intensity * direction
 	if distance > DISTANCE_HIGH_PASS:
-		height_velocity = BallState.GRAVITY * distance / (1.8 * intensity)
+		height_velocity = BallState.GRAVITY * distance / (1.85 * intensity)
 	carrier = null
 	switch_state(Ball.State.FREEFORM, BallStateData.build().set_lock_duration(lock_duration))
 
@@ -89,6 +89,7 @@ func get_proximity_teammates_count(country: String) -> int:
 func on_team_reset() -> void:
 	position = spawn_position
 	velocity = Vector2.ZERO
+	height = 0
 	switch_state(State.FREEFORM)
 
 func on_kickoff_started() -> void:

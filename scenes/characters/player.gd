@@ -196,7 +196,6 @@ func on_game_over(winning_team: String) -> void:
 		switch_state(Player.State.CELEBRATING)
 	else:
 		switch_state(Player.State.MOURNING)
-	
 
 func control_ball() -> void:
 	if ball.height > BALL_CONTROL_HEIGHT_MAX:
