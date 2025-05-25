@@ -31,6 +31,9 @@ func perform_ai_decisions() -> void:
 		player.switch_state(Player.State.TACKLING)
 	if ball.carrier == player:
 		var target := player.target_goal.get_center_target_position()
+		var shot_probability := SHOT_PROBABILITY
+		if GameManager.player_setup[0] == player.country or GameManager.player_setup[1] == player.country:
+			shot_probability = shot_probability / 10.0
 		if player.position.distance_to(target) < SHOT_DISTANCE and randf() < SHOT_PROBABILITY:
 			player.face_towards_target_goal()
 			var shot_direction := player.position.direction_to(player.target_goal.get_random_target_position())

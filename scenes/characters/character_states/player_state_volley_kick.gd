@@ -2,7 +2,7 @@ class_name PlayerStateVolleyKick
 extends PlayerState
 
 const BALL_HEIGHT_MIN := 1.0
-const BALL_HEIGHT_MAX := 20.0
+const BALL_HEIGHT_MAX := 25.0
 const BONUS_POWER := 1.5
 
 func _enter_tree() -> void:

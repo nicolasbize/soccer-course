@@ -1,7 +1,7 @@
 class_name PlayerStateHeader
 extends PlayerState
 
-const BALL_HEIGHT_MIN := 10.0
+const BALL_HEIGHT_MIN := 5.0
 const BALL_HEIGHT_MAX := 30.0
 const BONUS_POWER := 1.3
 const HEIGHT_START := 0.1

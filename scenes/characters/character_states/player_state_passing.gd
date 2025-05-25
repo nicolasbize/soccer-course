@@ -13,16 +13,16 @@ func on_animation_complete() -> void:
 	if pass_target == null:
 		ball.pass_to(ball.position + player.heading * player.speed)
 	else:
-		if pass_target.control_scheme == Player.ControlScheme.CPU:
-			ball.pass_to(pass_target.position)
-		else:
-			ball.pass_to(pass_target.position + pass_target.velocity * 0.8)
+		var direction := player.position.direction_to(pass_target.position)
+		if sign(player.heading.x) != sign(direction.x):
+			player.heading *= -1
+		ball.pass_to(pass_target.position + pass_target.velocity * 0.8)
 	transition_state(Player.State.MOVING)
 
 func find_teammate_in_view() -> Player:
 	var players_in_view := teammate_detection_area.get_overlapping_bodies()
 	var teammates_in_view := players_in_view.filter(
-		func(p: Player): return p != player
+		func(p: Player): return p != player and p.country == player.country
 	)
 	teammates_in_view.sort_custom(
 		func(p1: Player, p2: Player): return p1.position.distance_squared_to(player.position) < p2.position.distance_squared_to(player.position)
